@@ -16,14 +16,15 @@ import { StockService } from './services/stock.service';
 import { StaffService } from './services/staff.service';
 import { AppRoutingModule } from './app.routing';
 
-// const appRoutes: Routes = [
-//   { path: 'staff', component: StaffComponent },
-//   { path: 'stock', component: StockComponent },
-//   { path: 'schedule', component: ScheduleComponent },
-//   { path: 'customers', component: CustomersComponent },
-//   { path: '', redirectTo: 'staff', pathMatch: 'full' }
-//   // { path: '**', component: StaffComponent }
-// ];
+
+import { FormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { MenuItem } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,15 @@ import { AppRoutingModule } from './app.routing';
     NavbarComponent
   ],
   imports: [
-    AppRoutingModule
+    AppRoutingModule,
     BrowserModule,
+    TabMenuModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    CardModule
     // RouterModule.forRoot(appRoutes),
   ],
-   exports: [AppRoutingModule],
+  exports: [AppRoutingModule],
   providers: [
     CustomersService,
     StaffService,

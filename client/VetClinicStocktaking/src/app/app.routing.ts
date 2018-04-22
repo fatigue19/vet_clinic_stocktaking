@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'stock', component: StockComponent },
     { path: 'schedule', component: ScheduleComponent },
     { path: 'customers', component: CustomersComponent },
-    { path: '', redirectTo: 'staff', pathMatch: 'full' }
+    { path: '', component: StaffComponent }
 ];
 
 
