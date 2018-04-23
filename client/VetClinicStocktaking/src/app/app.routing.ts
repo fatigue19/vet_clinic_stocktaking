@@ -13,8 +13,7 @@ const routes: Routes = [
     { path: 'staff', component: StaffComponent },
     { path: 'stock', component: StockComponent },
     { path: 'schedule', component: ScheduleComponent },
-    { path: 'customers', component: CustomersComponent },
-    { path: '', component: StaffComponent }
+    { path: 'customers', component: CustomersComponent }
 ];
 
 

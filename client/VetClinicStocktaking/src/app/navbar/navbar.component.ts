@@ -27,10 +27,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
     this.items = [
-      { label: 'Stock', icon: 'fa-bar-chart', routerLink: ['/stock'] },
-      { label: 'Customers', icon: 'fa-calendar', routerLink: ['/customers'] },
-      { label: 'Staff', icon: 'fa-book', routerLink: ['/staff'] },
-      { label: 'Schedule', icon: 'fa-support', routerLink: ['/schedule'] },
+      { label: 'Stock', icon: 'fa-archive', routerLink: ['/stock'] },
+      { label: 'Customers', icon: 'fa-address-book', routerLink: ['/customers'] },
+      { label: 'Staff', icon: 'fa-user-md', routerLink: ['/staff'] },
+      { label: 'Schedule', icon: 'fa-calendar', routerLink: ['/schedule'] },
       { label: 'Social', icon: 'fa-twitter' }
     ];
   }

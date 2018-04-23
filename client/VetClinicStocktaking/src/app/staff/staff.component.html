@@ -1,3 +1,35 @@
 <p-card title="Staff">
-    Content
+  <p-dataList [value]="stuff.staff" [paginator]="true" [rows]="5">
+      <p-header>
+          List of Staff
+      </p-header>
+    <ng-template let-employee pTemplate="item">
+      <div class="ui-g ui-fluid employee-item" style="border-bottom: 0.5px solid #D5D5D5">
+        <div class="ui-g-12 ui-md-3" style="text-align:center">
+          <img [src]="employee.photo" style="height: 160px; width: 168px;">
+        </div>
+        <div class="ui-g-12 ui-md-9 car-details">
+          <div class="ui-g-9">
+
+            <div class="ui-g-2 ui-sm-6">Id: </div>
+            <div class="ui-g-10 ui-sm-6">{{employee.id}}</div>
+
+            <div class="ui-g-2 ui-sm-6">Name: </div>
+            <div class="ui-g-10 ui-sm-6">{{employee.name}}</div>
+
+
+
+            <div class="ui-g-2 ui-sm-6">Position: </div>
+            <div class="ui-g-10 ui-sm-6">{{employee.position}}</div>
+
+          </div>
+          <button style="width: 85px" pButton type="button" label="Details"></button>
+        </div>
+        
+      </div>
+     
+    </ng-template>
+    
+  </p-dataList>
+  <button style="width: 65px; margin-top: 15px" pButton type="button" label="Add"></button>
 </p-card>
