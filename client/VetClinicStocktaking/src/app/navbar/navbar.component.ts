@@ -11,7 +11,8 @@ export const ROUTES: RouteInfo[] = [
   { title: 'Stock', path: 'stock' },
   { title: 'Customers', path: 'customers' },
   { title: 'Staff', path: 'staff' },
-  { title: 'Schedule', path: 'schedule' }];
+  { title: 'Schedule', path: 'schedule' }
+];
 
 @Component({
   selector: 'app-navbar',
@@ -19,21 +20,24 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  items: MenuItem[];
+  items: any;
   menuItems: RouteInfo[] = ROUTES;
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-
     this.items = [
-      { label: 'Stock', icon: 'fa-archive', routerLink: ['/stock'] },
-      { label: 'Customers', icon: 'fa-address-book', routerLink: ['/customers'] },
-      { label: 'Staff', icon: 'fa-user-md', routerLink: ['/staff'] },
-      { label: 'Schedule', icon: 'fa-calendar', routerLink: ['/schedule'] },
-      { label: 'Social', icon: 'fa-twitter' }
+      { label: 'Stock', icon: 'account_balance', path: 'stock' },
+      {
+        label: 'Customers',
+        icon: 'accessible',
+        path: '/customers'
+      },
+      { label: 'Staff', icon: 'accessibility', path: 'staff' },
+      { label: 'Schedule', icon: 'android', path: 'schedule' }
     ];
   }
 
-
+  navigate(path: string) {
+    this.router.navigateByUrl(path);
+  }
 }

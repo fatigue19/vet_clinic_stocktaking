@@ -19,14 +19,12 @@ import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { MenuItem } from 'primeng/api';
-import { TableModule } from 'primeng/table';
-import { DataListModule } from 'primeng/datalist';
-import { ScheduleModule } from 'primeng/schedule';
-import { DialogModule } from 'primeng/dialog';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -40,15 +38,11 @@ import { DialogModule } from 'primeng/dialog';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    TabMenuModule,
     BrowserAnimationsModule,
-    ButtonModule,
-    CardModule,
-    TableModule,
-    DataListModule,
-    FormsModule,
-    ScheduleModule,
-    DialogModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],
