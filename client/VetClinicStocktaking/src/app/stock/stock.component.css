@@ -1,0 +1,36 @@
+.item{
+    height: 140px;
+    width: 100%;
+}
+.item-image{
+    float: left;
+}
+.item-details{
+    width: 85%;
+    margin-left: 15%;
+    height: 100%;
+    position: relative;
+    top: 10px;
+}
+.item-description{
+    width: 40%;
+    float: left;
+}
+.item-price{
+    width: 30%;
+    float: left;
+}
+.item-counter{
+    float: left;
+    position: relative; 
+    top: 38%;
+    left: 22%;
+}
+.item-counter-inside{
+    width: 60px;
+}
+.item-purchase-button{
+    position: relative; 
+    top: 70%;
+    left: 16%;
+}

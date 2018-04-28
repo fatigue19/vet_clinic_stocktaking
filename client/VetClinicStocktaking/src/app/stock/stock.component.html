@@ -1,20 +1,27 @@
-<!-- <p-card title="Stock">
-  <p-table [value]="stock.stockItems">
-    <ng-template pTemplate="header">
-      <tr>
-        <th *ngFor="let col of cols">
-          {{col.header}}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-stockItem>
-      <tr>
-        <td *ngFor="let col of cols">
-          {{stockItem[col.field]}}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-  <button pButton type="button" label="Order new" style="margin-top: 15px" ></button>
-</p-card> -->
-<p>stock</p>
+<mat-accordion>
+  <mat-expansion-panel *ngFor='let item of stock.stockItems'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div>Name: {{item.name}}</div>
+      </mat-panel-title>
+      <mat-panel-description>
+        <div>Count: {{item.count}}</div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="item">
+      <div class="item-image">
+        <img [src]='item.image' alt="kek" width="150px">
+      </div>
+      <div class="item-details">
+        <div class="item-description">Description: {{item.description}}</div>
+        <div class="item-price"> Price: {{item.price}}</div>
+        <div class="item-counter">
+          <mat-form-field class="item-counter-inside">
+            <input matInput type="number" placeholder="count" [(ngModel)]='purchasedCount'>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button class="item-purchase-button" color="primary" (click)="purchase(item)">Purchase</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

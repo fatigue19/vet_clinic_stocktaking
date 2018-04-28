@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from '../services/stock.service';
+import { MatSnackBar } from '@angular/material';
+import { Good } from '../models/good';
+
 
 @Component({
   selector: 'app-stock',
@@ -7,15 +10,16 @@ import { StockService } from '../services/stock.service';
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
-  constructor(public stock: StockService) {}
-
-  cols: any[];
+  public purchasedCount = 1;
+  constructor(public stock: StockService, public modalSnackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.cols = [
-      { field: 'id', header: 'Id' },
-      { field: 'name', header: 'Name' },
-      { field: 'count', header: 'Count' }
-    ];
+  }
+
+  purchase(item: Good) {
+    this.modalSnackBar.open(`You purchased ${this.purchasedCount} of ${item.name} by price of ${item.price}.`,
+      '',
+      { duration: 2000 });
+    this.purchasedCount = 1;
   }
 }

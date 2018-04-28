@@ -23,7 +23,10 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatExpansionModule,
+  MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -39,10 +42,14 @@ import {
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],
