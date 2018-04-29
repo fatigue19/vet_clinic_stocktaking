@@ -1,20 +1,61 @@
-<!-- <p-card title="Customers">
-        <p-table [value]="customers.customers">
-                <ng-template pTemplate="header">
-                  <tr>
-                    <th *ngFor="let col of cols">
-                      {{col.header}}
-                    </th>
-                  </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-customer>
-                  <tr>
-                    <td *ngFor="let col of cols">
-                      {{customer[col.field]}}
-                    </td>
-                  </tr>
-                </ng-template>
-              </p-table>
-              <button pButton type="button" label="Add" style="margin-top: 15px" ></button>
-</p-card> -->
-<p>customers</p>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<mat-table #table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="masterName">
+    <mat-header-cell *matHeaderCellDef> Master Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.masterName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="breed">
+    <mat-header-cell *matHeaderCellDef> Breed </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.breed}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sex">
+    <mat-header-cell *matHeaderCellDef> Sex </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.sex}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="color">
+    <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.color}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="registration">
+    <mat-header-cell *matHeaderCellDef> Registration </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.registration | date}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div>
+        <button mat-icon-button color="accent" (click)='edit(element)'>
+          <mat-icon aria-label="Edit">mode_edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)='remove(element)'>
+          <mat-icon aria-label="Remove">delete_sweep</mat-icon>
+        </button>
+      </div>
+    </mat-cell>
+
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+</mat-paginator>

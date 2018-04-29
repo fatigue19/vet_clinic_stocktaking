@@ -8,6 +8,7 @@ import { StockComponent } from './stock/stock.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PetEditComponent } from './pet-edit/pet-edit.component';
 
 import { CustomersService } from './services/customers.service';
 import { ScheduleService } from './services/schedule.service';
@@ -26,7 +27,12 @@ import {
   MatToolbarModule,
   MatExpansionModule,
   MatInputModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatIconModule,
+  MatDialogModule,
+  MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -36,7 +42,8 @@ import {
     StockComponent,
     ScheduleComponent,
     CustomersComponent,
-    NavbarComponent
+    NavbarComponent,
+    PetEditComponent
   ],
   imports: [
     AppRoutingModule,
@@ -49,10 +56,16 @@ import {
     MatToolbarModule,
     MatExpansionModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatDialogModule,
+    MatCardModule
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PetEditComponent]
 })
-export class AppModule {}
+export class AppModule { }

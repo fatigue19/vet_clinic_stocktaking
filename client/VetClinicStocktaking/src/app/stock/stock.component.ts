@@ -20,6 +20,9 @@ export class StockComponent implements OnInit {
     this.modalSnackBar.open(`You purchased ${this.purchasedCount} of ${item.name} by price of ${item.price}.`,
       '',
       { duration: 2000 });
+    item = this.stock.stockItems.find((a) => a.id === item.id);
+    console.log(item);
+    item.count += this.purchasedCount;
     this.purchasedCount = 1;
   }
 }
