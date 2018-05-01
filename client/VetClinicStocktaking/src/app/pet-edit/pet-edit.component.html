@@ -1,5 +1,57 @@
 <div>
- 
-    <img [src]="pet.photo" alt="" width="50px">
-  
+    <div class="form-input">
+        <img [src]="tempPet.photo" alt="" width="50px">
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="tempPet.name">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Master name" [(ngModel)]="tempPet.masterName">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Breed" [(ngModel)]="tempPet.breed">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Type" [(ngModel)]="tempPet.type">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Sex" [(ngModel)]="tempPet.sex">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Color" [(ngModel)]="tempPet.color">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Contacts" [(ngModel)]="tempPet.contacts">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Weight" [(ngModel)]="tempPet.weight">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <mat-form-field>
+            <input matInput placeholder="Current Diagnosis" [(ngModel)]="tempPet.currentDiagnosis">
+        </mat-form-field>
+    </div>
+    <div class="form-input">
+        <button mat-raised-button color="primary" (click)="save()">Save</button>
+    </div>
+    <div class="form-input">
+        <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+    </div>
+
 </div>

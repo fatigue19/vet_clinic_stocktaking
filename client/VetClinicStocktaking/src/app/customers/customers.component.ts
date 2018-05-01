@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CustomersService } from '../services/customers.service';
 import { MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 import { PetEditComponent } from '../pet-edit/pet-edit.component';
+import { Pet } from '../models/pet';
 
 @Component({
   selector: 'app-customers',
@@ -29,26 +30,21 @@ export class CustomersComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  // openDialog(): void {
-  //   let dialogRef = this.dialog.open(PetEditComponent, {
-  //     width: '250px',
-  //     data: { name: this.name, animal: this.animal }
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.animal = result;
-  //   });
-  // }
-
-  edit(element: any) {
-   this.dialog.open(PetEditComponent, {
+  edit(element: Pet) {
+    this.dialog.open(PetEditComponent, {
       width: '500px',
       data: element
     });
   }
 
-  remove(element: any) {
+  add() {
+    this.dialog.open(PetEditComponent, {
+      width: '500px',
+      data: new Pet()
+    });
+  }
+
+  remove(element: Pet) {
     // remove element
   }
 }
