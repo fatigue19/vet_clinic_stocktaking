@@ -1,5 +1,9 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
 <mat-accordion>
-  <mat-expansion-panel *ngFor='let item of stock.stockItems'>
+  <mat-expansion-panel *ngFor='let item of items'>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <div>Name: {{item.name}}</div>

@@ -3,7 +3,6 @@ import { StockService } from '../services/stock.service';
 import { MatSnackBar } from '@angular/material';
 import { Good } from '../models/good';
 
-
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
@@ -11,18 +10,38 @@ import { Good } from '../models/good';
 })
 export class StockComponent implements OnInit {
   public purchasedCount = 1;
-  constructor(public stock: StockService, public modalSnackBar: MatSnackBar) { }
+  items: Good[] = [];
+
+
+  constructor(public stock: StockService, public modalSnackBar: MatSnackBar) {}
 
   ngOnInit() {
+    this.items = this.stock.stockItems;
   }
 
   purchase(item: Good) {
-    this.modalSnackBar.open(`You purchased ${this.purchasedCount} of ${item.name} by price of ${item.price}.`,
+    this.modalSnackBar.open(
+      `You purchased ${this.purchasedCount} of ${item.name} by price of ${
+        item.price
+      }.`,
       '',
-      { duration: 2000 });
-    item = this.stock.stockItems.find((a) => a.id === item.id);
+      { duration: 2000 }
+    );
+    item = this.stock.stockItems.find(a => a.id === item.id);
     console.log(item);
     item.count += this.purchasedCount;
     this.purchasedCount = 1;
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.items = this.stock.stockItems.filter(
+      a =>
+        a.name.includes(filterValue) ||
+        a.count.toString().includes(filterValue) ||
+        a.description.includes(filterValue) ||
+        a.price.toString().includes(filterValue)
+    ); // = filterValue;
   }
 }

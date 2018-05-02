@@ -26,14 +26,14 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Stock', icon: 'account_balance', path: 'stock' },
+      { label: 'Stock', icon: 'dns', path: 'stock' },
       {
         label: 'Customers',
-        icon: 'accessible',
+        icon: 'person',
         path: '/customers'
       },
       { label: 'Staff', icon: 'accessibility', path: 'staff' },
-      { label: 'Schedule', icon: 'android', path: 'schedule' }
+      { label: 'Schedule', icon: 'date_range', path: 'schedule' }
     ];
   }
 

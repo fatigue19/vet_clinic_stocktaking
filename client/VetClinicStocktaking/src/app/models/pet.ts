@@ -1,5 +1,5 @@
 export class Pet {
-    id: number;
+    id: number | null;
     name: string;
     masterName: string;
     breed: string;
@@ -7,11 +7,11 @@ export class Pet {
     sex: string;
     color: string;
     contacts: string;
-    birth: Date;
-    registration: Date;
+    birth: Date | null;
+    registration: Date | null;
     photo: string;
-    weight: number;
-    fitstRecording: Date;
-    lastRecording: Date;
+    weight: number ;
+    fitstRecording: Date | null;
+    lastRecording: Date | null;
     currentDiagnosis: string;
 }

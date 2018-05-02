@@ -9,25 +9,35 @@ import { CustomersService } from '../services/customers.service';
   styleUrls: ['./pet-edit.component.css']
 })
 export class PetEditComponent implements OnInit {
-
   // @Input() pet: Pet;
 
-  constructor(public dialogRef: MatDialogRef<PetEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public pet: Pet, public customers: CustomersService) { }
-
+  constructor(
+    public dialogRef: MatDialogRef<PetEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public pet: any,
+    public customers: CustomersService
+  ) {}
 
   tempPet: Pet;
   ngOnInit() {
-    this.tempPet = this.pet;
+    if (this.pet.id) {
+      this.tempPet = this.pet;
+    } else {
+      this.tempPet = new Pet();
+    }
   }
 
   save() {
+    debugger;
+    let item = this.customers.pets.find(a => a.id === this.tempPet.id);
 
-    let item = this.customers.pets.find((a) => a.id === this.tempPet.id);
+    if (item) {
+      let index = this.customers.pets.indexOf(item);
 
-    let index = this.customers.pets.indexOf(item);
-
-    this.customers.pets[index] = this.tempPet;
+      this.customers.pets[index] = this.tempPet;
+    }
+    else { 
+      this.customers.pets.push(this.tempPet);
+    }
 
     this.dialogRef.close();
   }
@@ -35,5 +45,4 @@ export class PetEditComponent implements OnInit {
   cancel() {
     this.dialogRef.close();
   }
-
 }

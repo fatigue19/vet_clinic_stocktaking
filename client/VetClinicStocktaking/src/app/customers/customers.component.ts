@@ -19,7 +19,7 @@ export class CustomersComponent implements OnInit {
   ngOnInit() {
   }
 
-  // tslint:disable-next-line:use-life-cycle-interface
+  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -40,7 +40,7 @@ export class CustomersComponent implements OnInit {
   add() {
     this.dialog.open(PetEditComponent, {
       width: '500px',
-      data: new Pet()
+      data: {}
     });
   }
 
