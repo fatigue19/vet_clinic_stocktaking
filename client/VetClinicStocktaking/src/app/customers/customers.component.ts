@@ -3,6 +3,7 @@ import { CustomersService } from '../services/customers.service';
 import { MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 import { PetEditComponent } from '../pet-edit/pet-edit.component';
 import { Pet } from '../models/pet';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-customers',
@@ -10,7 +11,7 @@ import { Pet } from '../models/pet';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  constructor(public customers: CustomersService, public dialog: MatDialog) { }
+  constructor(public customers: CustomersService, public dialog: MatDialog,public http: HttpClient) { }
 
   displayedColumns = ['name', 'masterName', 'type', 'breed', 'sex', 'color', 'registration', 'action'];
   dataSource = new MatTableDataSource(this.customers.pets);
@@ -42,6 +43,8 @@ export class CustomersComponent implements OnInit {
       width: '500px',
       data: {}
     });
+    this.http.get<any>(`http://localhost:3000`).subscribe(result=>console.log(result));
+    console.log('res ^^^')
   }
 
   remove(element: Pet) {

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { StaffComponent } from './staff/staff.component';
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app.routing';
 import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
 
 import {
   MatButtonModule,
@@ -34,6 +36,7 @@ import {
   MatDialogModule,
   MatCardModule
 } from '@angular/material';
+import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 
 @NgModule({
   declarations: [
@@ -43,13 +46,15 @@ import {
     ScheduleComponent,
     CustomersComponent,
     NavbarComponent,
-    PetEditComponent
+    PetEditComponent,
+    CalendarHeaderComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
     MatSidenavModule,
@@ -61,7 +66,8 @@ import {
     MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    CalendarModule.forRoot()
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],
