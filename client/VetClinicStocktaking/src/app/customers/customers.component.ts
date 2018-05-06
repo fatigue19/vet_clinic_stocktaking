@@ -17,7 +17,9 @@ export class CustomersComponent implements OnInit {
   dataSource = new MatTableDataSource(this.customers.pets);
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+
   ngOnInit() {
+    
   }
 
   
@@ -36,6 +38,7 @@ export class CustomersComponent implements OnInit {
       width: '500px',
       data: element
     });
+    this.dataSource.data = this.customers.pets;
   }
 
   add() {
@@ -43,8 +46,7 @@ export class CustomersComponent implements OnInit {
       width: '500px',
       data: {}
     });
-    this.http.get<any>(`http://localhost:3000`).subscribe(result=>console.log(result));
-    console.log('res ^^^')
+    this.dataSource.data = this.customers.pets;
   }
 
   remove(element: Pet) {

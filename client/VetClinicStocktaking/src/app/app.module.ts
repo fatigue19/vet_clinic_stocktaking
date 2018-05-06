@@ -37,6 +37,8 @@ import {
   MatCardModule
 } from '@angular/material';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
+import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { CalendarHeaderComponent } from './calendar-header/calendar-header.compo
     CustomersComponent,
     NavbarComponent,
     PetEditComponent,
-    CalendarHeaderComponent
+    CalendarHeaderComponent,
+    DatetimePickerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -67,6 +70,7 @@ import { CalendarHeaderComponent } from './calendar-header/calendar-header.compo
     MatIconModule,
     MatDialogModule,
     MatCardModule,
+    NgbModule.forRoot(),
     CalendarModule.forRoot()
   ],
   exports: [AppRoutingModule],

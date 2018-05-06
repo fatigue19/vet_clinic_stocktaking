@@ -27,15 +27,16 @@ export class PetEditComponent implements OnInit {
   }
 
   save() {
+    // tslint:disable-next-line:no-debugger
     debugger;
-    let item = this.customers.pets.find(a => a.id === this.tempPet.id);
+    
+    const item = this.customers.pets.find(a => a.id === this.tempPet.id);
 
     if (item) {
-      let index = this.customers.pets.indexOf(item);
+      const index = this.customers.pets.indexOf(item);
 
       this.customers.pets[index] = this.tempPet;
-    }
-    else { 
+    } else {
       this.customers.pets.push(this.tempPet);
     }
 

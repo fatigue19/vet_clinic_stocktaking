@@ -1,54 +1,31 @@
-<div class="row text-center">
-  <div class="col-md-4">
-    <div class="btn-group">
-      <div
-        class="btn btn-primary"
-        mwlCalendarPreviousView
-        [view]="view"
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)">
+<div>
+  <div>
+    <div>
+      <button mat-button color="primary" mwlCalendarPreviousView [(viewDate)]="viewDate" (viewDateChange)="viewDateChange.next(viewDate)">
         Previous
-      </div>
-      <div
-        class="btn btn-outline-secondary"
-        mwlCalendarToday
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)">
+      </button>
+      <button mat-button color="accent" mwlCalendarToday [(viewDate)]="viewDate" (viewDateChange)="viewDateChange.next(viewDate)">
         Today
-      </div>
-      <div
-        class="btn btn-primary"
-        mwlCalendarNextView
-        [view]="view"
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)">
+      </button>
+      <button mat-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="viewDateChange.next(viewDate)">
         Next
-      </div>
+      </button>
     </div>
   </div>
-  <div class="col-md-4">
+  <div>
     <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
   </div>
-  <div class="col-md-4">
-    <div class="btn-group"> 
-      <div
-        class="btn btn-primary"
-        (click)="viewChange.emit('month')"
-        [class.active]="view === 'month'">
+  <div>
+    <div>
+      <button mat-button color="primary" (click)="viewChange.emit('month')">
         Month
-      </div>
-      <div
-        class="btn btn-primary"
-        (click)="viewChange.emit('week')"
-        [class.active]="view === 'week'">
+      </button>
+      <button mat-button color="primary" (click)="viewChange.emit('week')" [class.active]="view === 'week'">
         Week
-      </div>
-      <div
-        class="btn btn-primary"
-        (click)="viewChange.emit('day')"
-        [class.active]="view === 'day'">
+      </button>
+      <button mat-button color="primary" (click)="viewChange.emit('day')" [class.active]="view === 'day'">
         Day
-      </div>
+      </button>
     </div>
   </div>
 </div>
