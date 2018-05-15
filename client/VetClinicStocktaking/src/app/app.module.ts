@@ -37,6 +37,9 @@ import {
   MatCardModule
 } from '@angular/material';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
+import { EditStockComponent } from './edit-stock/edit-stock.component';
+import { EnrollComponent } from './enroll/enroll.component';
+import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { CalendarHeaderComponent } from './calendar-header/calendar-header.compo
     CustomersComponent,
     NavbarComponent,
     PetEditComponent,
-    CalendarHeaderComponent
+    CalendarHeaderComponent,
+    EditStockComponent,
+    EnrollComponent,
+    EditStaffComponent
   ],
   imports: [
     AppRoutingModule,

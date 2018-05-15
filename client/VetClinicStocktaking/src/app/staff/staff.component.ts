@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {StaffService} from '../services/staff.service';
+import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-staff',
@@ -8,9 +11,36 @@ import {StaffService} from '../services/staff.service';
 })
 export class StaffComponent implements OnInit {
 
-  constructor(public stuff: StaffService) { }
+  items: Employee[] = [];
+
+  constructor(public staff: StaffService,
+    public modalSnackBar: MatSnackBar,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    
+    this.items = this.staff.staff;
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.items = this.staff.staff.filter(
+      a =>
+        a.name.includes(filterValue) ||
+        a.position.toString().includes(filterValue) ||
+        a.characteristics.includes(filterValue)
+    );
+  }
+  add() {
+    this.router.navigate(['edit-staff']);
+  }
+  edit(id: number) {
+    this.router.navigate(['edit-staff/' + id]);
+  }
+
+  remove(item: any) {
+    console.log('remove');
+   }
 }

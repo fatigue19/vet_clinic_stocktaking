@@ -3,4 +3,5 @@ export class Employee{
     name: string;
     position: string;
     photo: string;
+    characteristics: string;
 }

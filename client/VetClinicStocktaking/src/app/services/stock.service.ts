@@ -17,4 +17,10 @@ export class StockService {
   getAvailableItems() {
     return this.stockItems;
   }
+
+  getGood(id: number): Good { 
+    let item = this.stockItems.find(a => a.id == id);
+    console.log(item); 
+    return item;
+  }
 }

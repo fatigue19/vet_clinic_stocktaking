@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StockService } from '../services/stock.service';
 import { MatSnackBar } from '@angular/material';
 import { Good } from '../models/good';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -12,8 +13,12 @@ export class StockComponent implements OnInit {
   public purchasedCount = 1;
   items: Good[] = [];
 
-
-  constructor(public stock: StockService, public modalSnackBar: MatSnackBar) {}
+  constructor(
+    public stock: StockService,
+    public modalSnackBar: MatSnackBar,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.items = this.stock.stockItems;
@@ -29,7 +34,7 @@ export class StockComponent implements OnInit {
     );
     item = this.stock.stockItems.find(a => a.id === item.id);
     console.log(item);
-    item.count += this.purchasedCount;
+   item.count += this.purchasedCount;
     this.purchasedCount = 1;
   }
 
@@ -43,5 +48,12 @@ export class StockComponent implements OnInit {
         a.description.includes(filterValue) ||
         a.price.toString().includes(filterValue)
     ); // = filterValue;
+  }
+
+  add() {
+    this.router.navigate(['edit-stock']);
+  }
+  edit(id: number) {
+    this.router.navigate(['edit-stock/' + id]);
   }
 }

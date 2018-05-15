@@ -109,4 +109,10 @@ export class CustomersService {
     }];
 
   constructor() { }
+
+
+  getPet(id: number): Pet { 
+    let item = this.pets.find(a => a.id == id);
+    return item;
+  }
 }
