@@ -36,7 +36,6 @@ import {
   MatDialogModule,
   MatCardModule
 } from '@angular/material';
-import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { EditStockComponent } from './edit-stock/edit-stock.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { EditStaffComponent } from './edit-staff/edit-staff.component';
@@ -50,7 +49,6 @@ import { EditStaffComponent } from './edit-staff/edit-staff.component';
     CustomersComponent,
     NavbarComponent,
     PetEditComponent,
-    CalendarHeaderComponent,
     EditStockComponent,
     EnrollComponent,
     EditStaffComponent

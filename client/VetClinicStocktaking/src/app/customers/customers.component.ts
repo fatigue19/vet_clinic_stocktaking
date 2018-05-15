@@ -18,7 +18,7 @@ export class CustomersComponent implements OnInit {
     public http: HttpClient,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   displayedColumns = [
     'name',
@@ -33,8 +33,9 @@ export class CustomersComponent implements OnInit {
   dataSource = new MatTableDataSource(this.customers.pets);
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -47,25 +48,13 @@ export class CustomersComponent implements OnInit {
 
   edit(element: Pet) {
     this.router.navigate(['pet-edit/' + element.id]);
-    // this.dialog.open(PetEditComponent, {
-    //   width: '500px',
-    //   data: element
-    // });
   }
 
   add() {
     this.router.navigate(['pet-edit']);
-    // this.dialog.open(PetEditComponent, {
-    //   width: '500px',
-    //   data: {}
-    // });
-    // this.http
-    //   .get<any>(`http://localhost:3000`)
-    //   .subscribe(result => console.log(result));
-    // console.log('res ^^^');
   }
 
   remove(element: Pet) {
-    // remove element
+    this.customers.removePet(element.id);
   }
 }

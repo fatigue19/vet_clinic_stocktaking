@@ -111,8 +111,16 @@ export class CustomersService {
   constructor() { }
 
 
-  getPet(id: number): Pet { 
-    let item = this.pets.find(a => a.id == id);
+  getPet(id: number): Pet {
+    const item = this.pets.find(a => a.id === id);
     return item;
+  }
+
+  removePet(id: number) {
+    const item = this.pets.find(a => a.id === id);
+
+    const index = this.pets.indexOf(item);
+
+    this.pets.splice(index, 1);
   }
 }

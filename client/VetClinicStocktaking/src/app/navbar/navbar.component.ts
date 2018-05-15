@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
       { label: 'Customers', icon: 'person', path: '/customers' },
       { label: 'Staff', icon: 'accessibility', path: '/staff' },
       { label: 'Schedule', icon: 'date_range', path: '/schedule' },
-      { label: 'Enroll', icon: 'date_range', path: '/enroll' }
+      { label: 'Enroll', icon: 'done_all', path: '/enroll' }
     ];
   }
 

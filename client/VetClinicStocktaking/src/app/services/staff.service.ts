@@ -48,5 +48,18 @@ export class StaffService {
     }
   ];
 
-  constructor() {}
+  constructor() { }
+
+  getEmployee(id: number): Employee {
+    const item = this.staff.find(a => a.id === id);
+    return item;
+  }
+
+  removeEmployee(id: number) {
+    const item = this.staff.find(a => a.id === id);
+
+    const index = this.staff.indexOf(item);
+
+    this.staff.splice(index, 1);
+  }
 }

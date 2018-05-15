@@ -12,15 +12,22 @@ export class StockService {
     { id: 6, name: 'item 6', description: 'description', price: 300, count: 1, image: '../../assets/staff/employee1.png' },
   ];
 
-  constructor() {}
+  constructor() { }
 
   getAvailableItems() {
     return this.stockItems;
   }
 
-  getGood(id: number): Good { 
-    let item = this.stockItems.find(a => a.id == id);
-    console.log(item); 
+  getGood(id: number): Good {
+    const item = this.stockItems.find(a => a.id === id);
+    console.log(item);
     return item;
+  }
+
+  removeGood(id: number) {
+    const item = this.stockItems.find(a => a.id === id);
+
+    const index = this.stockItems.indexOf(item);
+    this.stockItems.splice(index, 1);
   }
 }

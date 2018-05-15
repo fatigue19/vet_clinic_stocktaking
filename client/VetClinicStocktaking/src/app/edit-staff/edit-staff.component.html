@@ -1,3 +1,27 @@
-<p>
-  edit-staff works!
-</p>
+<div>
+  <div class="form-input">
+    <img [src]="tempPet.photo" alt="" width="50px">
+  </div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="employee.name">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Position" [(ngModel)]="employee.position">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Characteristics" [(ngModel)]="employee.characteristics">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+  <div class="form-input">
+    <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+  </div>
+
+</div>

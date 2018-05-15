@@ -10,38 +10,27 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./pet-edit.component.css']
 })
 export class PetEditComponent implements OnInit {
-  // @Input() pet: Pet;
 
   constructor(
-    // public dialogRef: MatDialogRef<PetEditComponent>,
-    // @Inject(MAT_DIALOG_DATA) public pet: any,
     public customers: CustomersService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   tempPet: Pet;
   ngOnInit() {
-    // if (this.pet.id) {
-    //   debugger;
-    //   this.tempPet = this.pet;
-    // } else {
-    //   this.tempPet = new Pet();
-    // }
-    let ident = this.route.snapshot.paramMap.get('id');
+    const ident = this.route.snapshot.paramMap.get('id');
 
     if (ident != null) {
-      let id: number = ident ? +ident : 0;
+      const id: number = ident ? +ident : 0;
       this.tempPet = this.customers.getPet(id);
-     }
-    else { 
+    } else {
       this.tempPet = new Pet();
     }
   }
 
   save() {
-    //debugger;
-    let item = this.customers.pets.find(a => a.id === this.tempPet.id);
+    const item = this.customers.pets.find(a => a.id === this.tempPet.id);
 
     if (item) {
       const index = this.customers.pets.indexOf(item);
@@ -50,13 +39,10 @@ export class PetEditComponent implements OnInit {
     } else {
       this.customers.pets.push(this.tempPet);
     }
-
-    //this.dialogRef.close();
     this.router.navigate(['customers']);
   }
 
   cancel() {
-    //this.dialogRef.close();
     this.router.navigate(['customers']);
   }
 }

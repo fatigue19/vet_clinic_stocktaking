@@ -24,7 +24,14 @@
             <input matInput type="number" placeholder="count" [(ngModel)]='purchasedCount'>
           </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" (click)="edit(item.id)">Edit</button>
+        <div>
+          <button mat-icon-button color="accent" (click)='edit(item.id)'>
+            <mat-icon aria-label="Edit">mode_edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)='remove(item.id)'>
+            <mat-icon aria-label="Remove">delete_sweep</mat-icon>
+          </button>
+        </div>
         <button mat-raised-button class="item-purchase-button" color="primary" (click)="purchase(item)">Purchase</button>
       </div>
     </div>

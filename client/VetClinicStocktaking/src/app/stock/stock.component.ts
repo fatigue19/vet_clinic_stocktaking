@@ -18,7 +18,7 @@ export class StockComponent implements OnInit {
     public modalSnackBar: MatSnackBar,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.items = this.stock.stockItems;
@@ -27,14 +27,14 @@ export class StockComponent implements OnInit {
   purchase(item: Good) {
     this.modalSnackBar.open(
       `You purchased ${this.purchasedCount} of ${item.name} by price of ${
-        item.price
+      item.price
       }.`,
       '',
       { duration: 2000 }
     );
     item = this.stock.stockItems.find(a => a.id === item.id);
     console.log(item);
-   item.count += this.purchasedCount;
+    item.count += this.purchasedCount;
     this.purchasedCount = 1;
   }
 
@@ -55,5 +55,9 @@ export class StockComponent implements OnInit {
   }
   edit(id: number) {
     this.router.navigate(['edit-stock/' + id]);
+  }
+
+  remove(id: number) {
+    this.stock.removeGood(id);
   }
 }
