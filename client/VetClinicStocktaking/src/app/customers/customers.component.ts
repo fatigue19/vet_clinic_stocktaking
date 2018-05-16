@@ -56,5 +56,6 @@ export class CustomersComponent implements OnInit {
 
   remove(element: Pet) {
     this.customers.removePet(element.id);
+    this.dataSource.data = this.customers.pets;
   }
 }

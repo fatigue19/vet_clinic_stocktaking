@@ -39,11 +39,11 @@ export class EditStockComponent implements OnInit {
       this.stockService.stockItems.push(this.stockItem);
     }
 
-    this.router.navigate(['customers']);
+    this.router.navigate(['stock']);
   }
 
   cancel() {
-    this.router.navigate(['customers']);
+    this.router.navigate(['stock']);
   }
 
 }

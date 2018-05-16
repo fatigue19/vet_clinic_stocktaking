@@ -10,6 +10,9 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
+import { EditStockComponent } from './edit-stock/edit-stock.component';
+import { EnrollComponent } from './enroll/enroll.component';
+import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 import { CustomersService } from './services/customers.service';
 import { ScheduleService } from './services/schedule.service';
@@ -20,7 +23,6 @@ import { AppRoutingModule } from './app.routing';
 import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule } from 'angular-calendar';
 
 import {
   MatButtonModule,
@@ -34,11 +36,9 @@ import {
   MatPaginatorModule,
   MatIconModule,
   MatDialogModule,
-  MatCardModule
+  MatCardModule,
+  MatStepperModule
 } from '@angular/material';
-import { EditStockComponent } from './edit-stock/edit-stock.component';
-import { EnrollComponent } from './enroll/enroll.component';
-import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 @NgModule({
   declarations: [
@@ -70,12 +70,11 @@ import { EditStaffComponent } from './edit-staff/edit-staff.component';
     MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
-    MatCardModule,
-    CalendarModule.forRoot()
+    MatCardModule
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],
   bootstrap: [AppComponent],
   entryComponents: [PetEditComponent]
 })
-export class AppModule { }
+export class AppModule {}
