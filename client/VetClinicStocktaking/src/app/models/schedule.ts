@@ -4,6 +4,6 @@ import { Employee } from './employee';
 export class Schedule {
   id: number;
   date: Date;
-  customer: string; //Customer;
-  employee: string; //Employee;
+  customer: string; // Customer;
+  employee: string; // Employee;
 }

@@ -13,6 +13,7 @@ import { EnrollComponent } from './enroll/enroll.component';
 import { EditStaffComponent } from './edit-staff/edit-staff.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'staff', pathMatch: 'full' },
   { path: 'staff', component: StaffComponent },
   { path: 'stock', component: StockComponent },
   { path: 'schedule', component: ScheduleComponent },
@@ -24,7 +25,6 @@ const routes: Routes = [
   { path: 'enroll', component: EnrollComponent },
   { path: 'edit-staff', component: EditStaffComponent },
   { path: 'edit-staff/:id', component: EditStaffComponent },
-  { path: '', redirectTo: 'staff', pathMatch: 'full' },
   { path: '**', redirectTo: 'staff' }
 ];
 
@@ -32,4 +32,4 @@ const routes: Routes = [
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
