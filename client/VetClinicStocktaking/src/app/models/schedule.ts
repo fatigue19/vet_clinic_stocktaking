@@ -6,4 +6,5 @@ export class Schedule {
   date: Date;
   customer: string; // Customer;
   employee: string; // Employee;
+  comment: string;
 }

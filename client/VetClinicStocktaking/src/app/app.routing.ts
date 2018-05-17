@@ -11,11 +11,11 @@ import { EditStockComponent } from './edit-stock/edit-stock.component';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { EditStaffComponent } from './edit-staff/edit-staff.component';
+import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'staff', pathMatch: 'full' },
-  { path: 'staff', component: StaffComponent },
   { path: 'stock', component: StockComponent },
+  { path: 'staff', component: StaffComponent },
   { path: 'schedule', component: ScheduleComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'pet-edit', component: PetEditComponent },
@@ -25,11 +25,14 @@ const routes: Routes = [
   { path: 'enroll', component: EnrollComponent },
   { path: 'edit-staff', component: EditStaffComponent },
   { path: 'edit-staff/:id', component: EditStaffComponent },
-  { path: '**', redirectTo: 'staff' }
+  { path: 'edit-schedule', component: EditScheduleComponent },
+  { path: 'edit-schedule/:id', component: EditScheduleComponent },
+  { path: '', redirectTo: 'stock', pathMatch: 'full' },
+  { path: '**', redirectTo: 'stock' }
 ];
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

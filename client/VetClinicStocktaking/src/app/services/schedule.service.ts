@@ -8,19 +8,22 @@ export class ScheduleService {
       id: 1,
       date: new Date(2018, 3, 26, 10, 0),
       customer: 'Customer1',
-      employee: 'Employee1'
+      employee: 'Employee1',
+      comment: 'ache'
     },
     {
       id: 2,
       date: new Date(2018, 3, 26, 9, 0),
       customer: 'Customer2',
-      employee: 'Employee1'
+      employee: 'Employee1',
+      comment: 'temprature'
     },
     {
       id: 3,
       date: new Date(2018, 3, 26, 11, 0),
       customer: 'Customer3',
-      employee: 'Employee2'
+      employee: 'Employee2',
+      comment: 'inspectation'
     }
   ];
   constructor() { }

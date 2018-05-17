@@ -19,6 +19,11 @@
     <mat-cell *matCellDef="let element"> {{element.date | date : 'short'}} </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="comment">
+    <mat-header-cell *matHeaderCellDef> Comment </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.comment}} </mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="action">
     <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
     <mat-cell *matCellDef="let element">

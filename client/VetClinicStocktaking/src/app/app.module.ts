@@ -20,7 +20,7 @@ import { StockService } from './services/stock.service';
 import { StaffService } from './services/staff.service';
 import { AppRoutingModule } from './app.routing';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -39,6 +39,7 @@ import {
   MatCardModule,
   MatStepperModule
 } from '@angular/material';
+import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 
 @NgModule({
   declarations: [
@@ -51,13 +52,15 @@ import {
     PetEditComponent,
     EditStockComponent,
     EnrollComponent,
-    EditStaffComponent
+    EditStaffComponent,
+    EditScheduleComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule ,
     HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -70,7 +73,8 @@ import {
     MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatStepperModule
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],
