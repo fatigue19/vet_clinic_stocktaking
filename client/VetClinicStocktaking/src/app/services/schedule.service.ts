@@ -26,7 +26,7 @@ export class ScheduleService {
       comment: 'inspectation'
     }
   ];
-  constructor() { }
+  constructor() {}
 
   getSchedule(id: number): Schedule {
     const item = this.schedules.find(a => a.id === id);
@@ -39,5 +39,12 @@ export class ScheduleService {
     const index = this.schedules.indexOf(item);
 
     this.schedules.splice(index, 1);
+  }
+
+  addSchedule(sch: Schedule) {
+    const id = this.schedules.length + 1;
+    sch.id = id;
+    this.schedules.push(sch);
+    console.log(this.schedules);
   }
 }

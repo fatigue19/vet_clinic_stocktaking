@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormArray,
+  FormArrayName
+} from '@angular/forms';
+import { StaffService } from '../services/staff.service';
+import { Employee } from '../models/employee';
+import { Schedule } from '../models/schedule';
+import { Time } from '@angular/common';
+import { ScheduleService } from '../services/schedule.service';
+
 @Component({
   selector: 'app-enroll',
   templateUrl: './enroll.component.html',
@@ -7,27 +19,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EnrollComponent implements OnInit {
 
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  forthFormGroup: FormGroup;
+  doctorsList: Employee[];
+  public enroll: Schedule;
+  formGroup: FormGroup;
+  formArray: FormArrayName;
+  date: Date;
+  timeString: string;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private staff: StaffService, private schedule: ScheduleService) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-    this.forthFormGroup = this._formBuilder.group({
-      forthCtrl: ['', Validators.required]
-    });
+    this.doctorsList = this.staff.staff;
+
+    this.enroll = new Schedule();
   }
 
+  submit() {
+    
+    this.enroll.date.setHours(+this.timeString.split(':')[0]);
+    this.enroll.date.setMinutes(+this.timeString.split(':')[1]);
+    this.schedule.addSchedule(this.enroll);
+  }
 }

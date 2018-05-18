@@ -20,7 +20,7 @@ import { StockService } from './services/stock.service';
 import { StaffService } from './services/staff.service';
 import { AppRoutingModule } from './app.routing';
 
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -37,7 +37,10 @@ import {
   MatIconModule,
   MatDialogModule,
   MatCardModule,
-  MatStepperModule
+  MatStepperModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 
@@ -60,7 +63,7 @@ import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -74,7 +77,10 @@ import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
     MatIconModule,
     MatDialogModule,
     MatCardModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [AppRoutingModule],
   providers: [CustomersService, StaffService, StockService, ScheduleService],

@@ -1,60 +1,62 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+<form>
+  <mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step>
+
+      <ng-template matStepLabel>Name of patient</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        <input matInput placeholder="Last name, First name" [(ngModel)]="enroll.customer" name="customerName" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext type="button">Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+
+    </mat-step>
+    <mat-step>
       <ng-template matStepLabel>Choose doctor:</ng-template>
       <mat-form-field>
-        <input matInput placeholder="doctors dropdown" formControlName="secondCtrl" required>
+        <mat-select placeholder="Doctor" [(value)]="enroll.employee">
+          <mat-option *ngFor="let doctor of doctorsList" [value]="doctor.name">
+            {{ doctor.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup">
+    </mat-step>
+    <mat-step>
       <ng-template matStepLabel>Short comment:</ng-template>
       <mat-form-field>
-        <input matInput placeholder="describe reason" formControlName="thirdCtrl" required>
+        <textarea matInput placeholder="describe reason" name="comment" [(ngModel)]="enroll.comment" required></textarea>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="forthFormGroup">
-    <form [formGroup]="forthFormGroup">
+    </mat-step>
+    <mat-step>
       <ng-template matStepLabel>Select date:</ng-template>
       <mat-form-field>
-        <input matInput placeholder="select date" formControlName="forthCtrl" required>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="enroll.date" name="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="time" [(ngModel)]="timeString" name="time">
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button (click)="submit()" type="button">Submitt</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

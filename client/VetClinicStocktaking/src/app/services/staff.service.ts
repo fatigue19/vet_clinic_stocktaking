@@ -62,4 +62,11 @@ export class StaffService {
 
     this.staff.splice(index, 1);
   }
+
+  // addEmployee(emp: Employee) { 
+  //   const id = this.staff.length + 1;
+  //   emp.id = id;
+  //   this.staff.push(emp);
+  //   console.log(this.staff);
+  // }
 }
