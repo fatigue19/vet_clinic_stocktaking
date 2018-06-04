@@ -3,16 +3,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 declare interface RouteInfo {
-  title: string;
+  label: string;
   path: string;
+  icon: string;
 }
 
 export const ROUTES: RouteInfo[] = [
-  { title: 'Stock', path: 'stock' },
-  { title: 'Customers', path: 'customers' },
-  { title: 'Staff', path: 'staff' },
-  { title: 'Schedule', path: 'schedule' },
-  { title: 'Enroll', path: 'enroll' }
+  { label: 'Склад', path: 'stock', icon: 'dns' },
+  { label: 'Клієнти', path: 'customers', icon: 'person' },
+  { label: 'Робітники', path: 'staff', icon: 'accessibility' },
+  { label: 'Розклад', path: 'schedule', icon: 'date_range' },
+  { label: 'Записати', path: 'enroll', icon: 'done_all' }
 ];
 
 @Component({
@@ -26,13 +27,7 @@ export class NavbarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.items = [
-      { label: 'Stock', icon: 'dns', path: '/stock' },
-      { label: 'Customers', icon: 'person', path: '/customers' },
-      { label: 'Staff', icon: 'accessibility', path: '/staff' },
-      { label: 'Schedule', icon: 'date_range', path: '/schedule' },
-      { label: 'Enroll', icon: 'done_all', path: '/enroll' }
-    ];
+    this.items = ROUTES;
   }
 
   navigate(path: string) {

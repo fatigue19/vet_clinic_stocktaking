@@ -11,6 +11,7 @@ import { Employee } from '../models/employee';
 import { Schedule } from '../models/schedule';
 import { Time } from '@angular/common';
 import { ScheduleService } from '../services/schedule.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-enroll',
@@ -18,7 +19,6 @@ import { ScheduleService } from '../services/schedule.service';
   styleUrls: ['./enroll.component.css']
 })
 export class EnrollComponent implements OnInit {
-
   doctorsList: Employee[];
   public enroll: Schedule;
   formGroup: FormGroup;
@@ -26,7 +26,13 @@ export class EnrollComponent implements OnInit {
   date: Date;
   timeString: string;
 
-  constructor(private _formBuilder: FormBuilder, private staff: StaffService, private schedule: ScheduleService) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private staff: StaffService,
+    private schedule: ScheduleService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.doctorsList = this.staff.staff;
@@ -35,9 +41,9 @@ export class EnrollComponent implements OnInit {
   }
 
   submit() {
-    
     this.enroll.date.setHours(+this.timeString.split(':')[0]);
     this.enroll.date.setMinutes(+this.timeString.split(':')[1]);
     this.schedule.addSchedule(this.enroll);
+    this.router.navigate(['schedule']);
   }
 }

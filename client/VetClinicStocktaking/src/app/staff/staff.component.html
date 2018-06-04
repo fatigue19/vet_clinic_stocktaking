@@ -1,15 +1,15 @@
 <mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Фільтр">
 </mat-form-field>
 
 <mat-accordion>
   <mat-expansion-panel *ngFor='let item of items'>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <div>Name: {{item.name}}</div>
+        <div>Ім'я: {{item.name}}</div>
       </mat-panel-title>
       <mat-panel-description>
-        <div>Position: {{item.position}}</div>
+        <div>Посада: {{item.position}}</div>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div class="item">
@@ -17,15 +17,15 @@
         <img [src]='item.photo' alt="kek" width="150px">
       </div>
       <div class="item-details">
-        <div class="item-description">Description: {{item.characteristics}}</div>
+        <div class="item-description">Характеристика: {{item.characteristics}}</div>
 
-        <button mat-raised-button color="primary" (click)="edit(item.id)">Edit</button>
-        <button mat-raised-button class="item-purchase-button" color="primary" (click)="remove(item.id)">Remove</button>
+        <button mat-raised-button color="primary" (click)="edit(item.id)">Редагувати</button>
+        <button mat-raised-button class="item-purchase-button" color="primary" (click)="remove(item.id)">Видалити</button>
       </div>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
 
 <div>
-  <button mat-raised-button class="item-purchase-button" color="primary" (click)="add()">Add</button>
+  <button mat-raised-button class="item-purchase-button" color="primary" (click)="add()">Додати</button>
 </div>
