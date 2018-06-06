@@ -4,4 +4,5 @@ export class Employee{
     position: string;
     photo: string;
     characteristics: string;
+    isDoctor: boolean;
 }

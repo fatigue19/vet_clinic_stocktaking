@@ -20,6 +20,16 @@
     </mat-form-field>
   </div>
   <div class="form-input">
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Оберіть дату" [(ngModel)]="schedule.date" name="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="time" [(ngModel)]="timeString" name="time">
+        </mat-form-field>
+  </div>
+  <div class="form-input">
     <button mat-raised-button color="primary" (click)="save()">Зберегти</button>
   </div>
   <div class="form-input">

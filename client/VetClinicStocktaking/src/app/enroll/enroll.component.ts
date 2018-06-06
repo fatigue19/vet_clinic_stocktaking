@@ -35,7 +35,7 @@ export class EnrollComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.doctorsList = this.staff.staff;
+    this.doctorsList = this.staff.staff.filter((a)=>a.isDoctor);
 
     this.enroll = new Schedule();
   }

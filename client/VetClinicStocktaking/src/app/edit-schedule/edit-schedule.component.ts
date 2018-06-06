@@ -16,6 +16,8 @@ export class EditScheduleComponent implements OnInit {
   ) {}
 
   schedule: Schedule;
+  timeString: string;
+
   ngOnInit() {
     const ident = this.route.snapshot.paramMap.get('id');
 
@@ -28,6 +30,9 @@ export class EditScheduleComponent implements OnInit {
   }
 
   save() {
+    this.schedule.date.setHours(+this.timeString.split(':')[0]);
+    this.schedule.date.setMinutes(+this.timeString.split(':')[1]);
+    
     const item = this.scheduleService.schedules.find(
       a => a.id === this.schedule.id
     );
