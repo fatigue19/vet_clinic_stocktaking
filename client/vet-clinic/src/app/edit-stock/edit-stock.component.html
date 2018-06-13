@@ -1,0 +1,33 @@
+<div>
+  <div class="form-input">
+      <img [src]="stockItem.image" alt="" width="50px">
+  </div>
+  <div class="form-input">
+      <mat-form-field>
+          <input matInput placeholder="Name" [(ngModel)]="stockItem.name">
+      </mat-form-field>
+  </div>
+  <div class="form-input">
+      <mat-form-field>
+          <input matInput placeholder="Description" [(ngModel)]="stockItem.description">
+      </mat-form-field>
+  </div>
+  <div class="form-input">
+      <mat-form-field>
+          <input matInput placeholder="Price" [(ngModel)]="stockItem.price">
+      </mat-form-field>
+  </div>
+  <div class="form-input">
+      <mat-form-field>
+          <input matInput placeholder="Count" type="number" [(ngModel)]="stockItem.count">
+      </mat-form-field>
+  </div>
+ 
+  <div class="form-input">
+      <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+  <div class="form-input">
+      <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+  </div>
+
+</div>

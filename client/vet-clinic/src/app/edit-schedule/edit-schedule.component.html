@@ -1,0 +1,29 @@
+<div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Date" [(ngModel)]="schedule.date">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Customer" [(ngModel)]="schedule.customer">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Employee" [(ngModel)]="schedule.employee">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <mat-form-field>
+      <input matInput placeholder="Comment" [(ngModel)]="schedule.comment">
+    </mat-form-field>
+  </div>
+  <div class="form-input">
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+  <div class="form-input">
+    <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+  </div>
+
+</div>

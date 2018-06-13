@@ -1,0 +1,43 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor='let item of items'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div>Name: {{item.name}}</div>
+      </mat-panel-title>
+      <mat-panel-description>
+        <div>Count: {{item.count}}</div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="item">
+      <div class="item-image">
+        <img [src]='item.image' alt="kek" width="150px">
+      </div>
+      <div class="item-details">
+        <div class="item-description">Description: {{item.description}}</div>
+        <div class="item-price"> Price: {{item.price}}</div>
+        <div class="item-counter">
+          <mat-form-field class="item-counter-inside">
+            <input matInput type="number" placeholder="count" [(ngModel)]='purchasedCount'>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-icon-button color="accent" (click)='edit(item.id)'>
+            <mat-icon aria-label="Edit">mode_edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)='remove(item.id)'>
+            <mat-icon aria-label="Remove">delete_sweep</mat-icon>
+          </button>
+        </div>
+        <button mat-raised-button class="item-purchase-button" color="primary" (click)="purchase(item)">Purchase</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div>
+  <button mat-raised-button class="item-purchase-button" color="primary" (click)="add()">Add</button>
+</div>
