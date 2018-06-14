@@ -1,46 +1,48 @@
 <mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Фільтр">
 </mat-form-field>
-
+<div>
+  <button mat-raised-button color="primary" (click)="add()">Додати</button>
+</div>
 <mat-table #table [dataSource]="dataSource">
 
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Кличка </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="masterName">
-    <mat-header-cell *matHeaderCellDef> Master Name </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Ім'я хазяїна </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.masterName}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="type">
-    <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Вид тварини </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="breed">
-    <mat-header-cell *matHeaderCellDef> Breed </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Порода </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.breed}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="sex">
-    <mat-header-cell *matHeaderCellDef> Sex </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Стать </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.sex}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="color">
-    <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Окрас </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.color}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="registration">
-    <mat-header-cell *matHeaderCellDef> Registration </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Дата регістрації </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.registration | date}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="action">
-    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Дії </mat-header-cell>
     <mat-cell *matCellDef="let element">
       <div>
         <button mat-icon-button color="accent" (click)='edit(element)'>
@@ -57,8 +59,6 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
-<div>
-  <button mat-raised-button color="primary" (click)="add()">Add</button>
-</div>
+
 <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
 </mat-paginator>

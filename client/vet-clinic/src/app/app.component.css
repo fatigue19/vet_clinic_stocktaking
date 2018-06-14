@@ -1,0 +1,14 @@
+.background{
+    background-image: url('assets/background.jpg');
+    width: 1900px;
+    height: 900px;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+}
+
+.foreground{
+    background-color: white;
+}

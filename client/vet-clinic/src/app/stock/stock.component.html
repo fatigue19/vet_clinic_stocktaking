@@ -1,27 +1,32 @@
 <mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Фільтр">
 </mat-form-field>
 
+<div>
+  <button mat-raised-button class="item-purchase-button" color="primary" (click)="add()">Додати</button>
+</div>
 <mat-accordion>
   <mat-expansion-panel *ngFor='let item of items'>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <div>Name: {{item.name}}</div>
+        <div>Найменування: {{item.name}}</div>
       </mat-panel-title>
+      <div style="left: 25%; position: absolute;">
       <mat-panel-description>
-        <div>Count: {{item.count}}</div>
+        <div>Кількість: {{item.count}}</div>
       </mat-panel-description>
+    </div>
     </mat-expansion-panel-header>
     <div class="item">
       <div class="item-image">
-        <img [src]='item.image' alt="kek" width="150px">
+        <img [src]='item.image' alt="kek" width="150px" height="150px">
       </div>
       <div class="item-details">
-        <div class="item-description">Description: {{item.description}}</div>
-        <div class="item-price"> Price: {{item.price}}</div>
+        <div class="item-description">Опис: {{item.description}}</div>
+        <div class="item-price"> Ціна: {{item.price}}</div>
         <div class="item-counter">
           <mat-form-field class="item-counter-inside">
-            <input matInput type="number" placeholder="count" [(ngModel)]='purchasedCount'>
+            <input matInput type="number" placeholder="Кількість" [(ngModel)]='purchasedCount'>
           </mat-form-field>
         </div>
         <div>
@@ -32,12 +37,9 @@
             <mat-icon aria-label="Remove">delete_sweep</mat-icon>
           </button>
         </div>
-        <button mat-raised-button class="item-purchase-button" color="primary" (click)="purchase(item)">Purchase</button>
+        <button mat-raised-button class="item-purchase-button" color="primary" (click)="purchase(item)">Купити</button>
       </div>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
 
-<div>
-  <button mat-raised-button class="item-purchase-button" color="primary" (click)="add()">Add</button>
-</div>

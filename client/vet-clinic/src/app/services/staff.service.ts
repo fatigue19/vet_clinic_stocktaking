@@ -6,45 +6,51 @@ export class StaffService {
   staff: Employee[] = [
     {
       id: 1,
-      name: 'Employee1',
-      position: 'position1',
-      photo: '../../assets/staff/employee1.png',
-      characteristics: 'test test test'
+      name: 'Петров Сергій Анатолійович',
+      position: 'Директор клініки',
+      photo: '../../assets/staff/employee6.jpg',
+      characteristics: 'Відповідальний, лідер, засновник клініки',
+      isDoctor: false
     },
     {
       id: 2,
-      name: 'Employee2',
-      position: 'position2',
-      photo: '../../assets/staff/employee2.jpg',
-      characteristics: 'test test test'
+      name: 'Іванова Марія Павлівна',
+      position: 'Головний бухгалтер',
+      photo: '../../assets/staff/employee3.jpg',
+      characteristics: 'Експерт по цифрам',
+      isDoctor: false
     },
     {
       id: 3,
-      name: 'Employee3',
-      position: 'position3',
-      photo: '../../assets/staff/employee3.jpg',
-      characteristics: 'test test test'
+      name: 'Жук Іван Федорович',
+      position: 'Ветеринар-фелінолог',
+      photo: '../../assets/staff/employee2.jpg',
+      characteristics: 'Спеціаліст з домашніх котів',
+      isDoctor: true
     },
     {
       id: 4,
-      name: 'Employee4',
-      position: 'position4',
-      photo: '../../assets/staff/employee4.jpg',
-      characteristics: 'test test test'
+      name: 'Пупа Іван Григорович',
+      position: 'Ветеринарний фельдшер',
+      photo: '../../assets/staff/employee5.jpg',
+      characteristics: 'Має середню освіту',
+      isDoctor: true
     },
     {
       id: 5,
-      name: 'Employee5',
-      position: 'position5',
-      photo: '../../assets/staff/employee5.jpg',
-      characteristics: 'test test test'
+      name: 'Белкін Олександр Іванович',
+      position: 'Адміністратор',
+      photo: '../../assets/staff/employee4.jpg',
+      characteristics: 'Веде записи в електронну систему',
+      isDoctor: false
     },
     {
       id: 6,
-      name: 'Employee6',
-      position: 'position6',
-      photo: '../../assets/staff/employee6.jpg',
-      characteristics: 'test test test'
+      name: 'Коржов Андрій Андрійович',
+      position: 'Завідувач складу',
+      photo: '../../assets/staff/employee1.png',
+      characteristics: 'Завідує складом, розвантажує машини з товарами',
+      isDoctor: false
     }
   ];
 
@@ -62,11 +68,4 @@ export class StaffService {
 
     this.staff.splice(index, 1);
   }
-
-  // addEmployee(emp: Employee) { 
-  //   const id = this.staff.length + 1;
-  //   emp.id = id;
-  //   this.staff.push(emp);
-  //   console.log(this.staff);
-  // }
 }

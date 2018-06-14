@@ -15,10 +15,13 @@
     </mat-form-field>
   </div>
   <div class="form-input">
-    <button mat-raised-button color="primary" (click)="save()">Save</button>
+    <mat-checkbox [(ngModel)]="employee.isDoctor">Лікар?</mat-checkbox>
   </div>
   <div class="form-input">
-    <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="save()">Зберегти</button>
+  </div>
+  <div class="form-input">
+    <button mat-raised-button color="primary" (click)="cancel()">Відмінити</button>
   </div>
 
 </div>

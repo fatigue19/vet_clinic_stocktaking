@@ -5,8 +5,10 @@ import {
   ViewChild
 } from '@angular/core';
 import { ScheduleService } from '../services/schedule.service';
+import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Schedule } from '../models/schedule';
+import { map } from 'rxjs/operators/map';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
